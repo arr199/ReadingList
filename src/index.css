@@ -1,0 +1,46 @@
+:root {
+  font-family: Cascadia Code, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+ 
+  /* background: url(ugur-akdemir-XT-o5O458as-unsplash.jpg);
+  background-position: center;
+  background-size: cover; */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.img-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  row-gap: 2em;
+  place-content: start;
+  place-items: center;
+}
+
+.lecture-list-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  place-content: center;
+  place-items: center;
+  filter: blur("150%");
+
+}
+
+main {
+
+
+}
+

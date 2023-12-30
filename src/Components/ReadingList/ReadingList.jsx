@@ -1,7 +1,7 @@
 import { SavedBook } from './SavedBook'
 import { GlobalStateContext } from '../../App'
 import { useContext, useRef } from 'react'
-import { useClickOutside } from '../../utils/hooks'
+import { useClickOutside } from '../../utils/Hooks'
 export function ReadingList ({ lectureBooks, handleRemoveImageFromLecture }) {
   const { listOpen, setListOpen } = useContext(GlobalStateContext)
   const myRef = useRef()

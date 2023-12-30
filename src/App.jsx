@@ -6,7 +6,7 @@ import { Header } from './Components/Header/Header'
 import { ReadingList } from './Components/ReadingList/ReadingList'
 import { BooksSection } from './Components/BooksSection/BooksSection'
 import { MainContent } from './Components/MainContent'
-import { useGetBooks } from './utils/hooks'
+import { useGetBooks } from './utils/Hooks'
 import { ShowReadingListButton } from './Components/BooksSection/ShowReadingListButton'
 
 // setting up my global context //

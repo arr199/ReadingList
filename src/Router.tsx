@@ -44,7 +44,7 @@ export function Route({ params = {}, path, children, component = null }) {
     const paramName = path.split("/:")[1]
     const paramValue = location.pathname.split(path.split(":")[0])[1]
 
-    // IF COMPONENT PROP IS NOT NULL
+    // IF COMPONENT PROP IS NULL
     if (!component) {
         return (
             <div>

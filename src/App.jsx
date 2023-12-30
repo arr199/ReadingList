@@ -42,11 +42,14 @@ function App () {
   }, [lectureBooks, books, filterByPage])
 
   // add to lecture list //
-  function handleImageClick (e) {
+  function handleImageClick (e, ref) {
     const id = e.target.dataset.id
     const newBooks = [...books].filter(e => e.book.ISBN !== id)
+
     setBooks(newBooks)
+
     const newLectureBook = [...books].filter(e => e.book.ISBN === id)
+
     if (!lectureBooks) setLectureBooks(newLectureBook)
     else setLectureBooks(e => [...e, newLectureBook[0]])
   }

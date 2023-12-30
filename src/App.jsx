@@ -17,7 +17,7 @@ function App () {
   const [lectureBooks, setLectureBooks] = useState(JSON.parse(localStorage.getItem('lectureBooks')) ?? []) // the current books on the lecture book
   const [filterByPage, setFilterByPage] = useState(JSON.parse(localStorage.getItem('filterByPage')) ?? 0) // controlling the input filter by page
   const [listOpen, setListOpen] = useState(false) // open and close the reading list
-  console.log(listOpen)
+
   useEffect(() => {
     if (!books || books.length === 0) return
     // saving the books list and lecture list to local storege everytime one of them change
@@ -99,7 +99,7 @@ function App () {
     handleRemoveImageFromLecture,
     handleSelectGenre
   }
-  // rendering //
+
   return (
     <>
       <GlobalStateContext.Provider value={contextObject}>

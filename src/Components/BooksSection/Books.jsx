@@ -1,16 +1,23 @@
 import { useContext } from 'react'
 import { GlobalStateContext } from '../../App'
+import { Link } from '../../Router'
 
 export const Book = ({ id, book, ...props }) => {
   const { handleImageClick } = useContext(GlobalStateContext)
 
   return (
       <div className=' flex flex-col h-full w-full '>
-        <div className='h-full w-full rounded-lg flex flex-col justify-center items-center shadow-[0px_0px_15px_12px_black]'>
+        <div className='h-full w-full rounded-lg flex flex-col justify-center items-center shadow-[0px_0px_15px_12px_black] pb-4'>
+
           <img
-            className='  w-full h-full object-fill aspect-square  p-5 rounded-lg'
+            className='  w-full h-full object-fill aspect-square  p-5 rounded-lg '
             src={book.cover} />
+             <Link className="font-bold " path={`/${id}`} >
+              Detalles &rarr;
+
+         </Link>
         </div>
+
         <div className='mt-5 self-start flex flex-col w-full gap-4'>
           <p>{book.title}</p>
           <p>{book.year}</p>

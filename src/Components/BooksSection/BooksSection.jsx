@@ -5,12 +5,13 @@ import { Book } from './Books'
 export const BooksSection = () => {
   const { genreFilter } = useContext(GlobalStateContext)
   return (
-        <section id="img-container" className='img-container w-[60%]  [&>img]:self-start [&>img]:place-self-start '>
-        { genreFilter && genreFilter.map(e => {
+        <section id="img-container" className='img-container w-full mt-10 gap-2  sm:gap-12 max-w-7xl mx-auto mb-20' >
+        { genreFilter && genreFilter.map(({ book }) => {
           return (
-              <Book id={e.book.ISBN} picture={e.book.cover} key={e.book.ISBN} ></Book>
+              <Book book={book} id={book.ISBN} key={book.ISBN} ></Book>
           )
         })}
+
         </section>
   )
 }

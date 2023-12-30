@@ -1,6 +1,5 @@
 /* eslint-disable brace-style */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/react-in-jsx-scope */
 import { useMemo, createContext, useState, useEffect } from 'react'
 import './index.css'
 import { Header } from './Components/Header/Header'
@@ -8,6 +7,7 @@ import { ReadingList } from './Components/ReadingList/ReadingList'
 import { BooksSection } from './Components/BooksSection/BooksSection'
 import { MainContent } from './Components/MainContent'
 import { useGetBooks } from './utils/hooks'
+import { ShowReadingListButton } from './Components/BooksSection/ShowReadingListButton'
 
 // setting up my global context //
 export const GlobalStateContext = createContext()
@@ -16,7 +16,8 @@ function App () {
   const { books, setBooks, genre, SetGenreSelected, genreSelected } = useGetBooks() // hook with all the initial book  data
   const [lectureBooks, setLectureBooks] = useState(JSON.parse(localStorage.getItem('lectureBooks')) ?? []) // the current books on the lecture book
   const [filterByPage, setFilterByPage] = useState(JSON.parse(localStorage.getItem('filterByPage')) ?? 0) // controlling the input filter by page
-
+  const [listOpen, setListOpen] = useState(false) // open and close the reading list
+  console.log(listOpen)
   useEffect(() => {
     if (!books || books.length === 0) return
     // saving the books list and lecture list to local storege everytime one of them change
@@ -91,6 +92,8 @@ function App () {
     genreSelected,
     filterByPage,
     genre,
+    listOpen,
+    setListOpen,
     handleImageClick,
     setFilterByPage,
     handleRemoveImageFromLecture,
@@ -111,6 +114,7 @@ function App () {
             lectureBooks={lectureBooks}
             handleRemoveImageFromLecture={handleRemoveImageFromLecture}></ReadingList>
         </MainContent>
+        <ShowReadingListButton />
       </GlobalStateContext.Provider>
     </>
   )

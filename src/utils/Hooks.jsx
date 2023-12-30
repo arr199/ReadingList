@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import library from '../books'
+
 export function useGetBooks () {
   const [books, setBooks] = useState([])
   const [genre, setGenre] = useState()
@@ -15,4 +16,26 @@ export function useGetBooks () {
     })
   }, [])
   return { books, setBooks, genre, genreSelected, SetGenreSelected }
+}
+
+// HANDLE CLICK OUTSIDE
+export function useClickOutside (ref, setter) {
+  useEffect(() => {
+    function handler (e) {
+      const container = ref?.current
+      const target = e?.target ?? null
+
+      if (target && container) {
+        if (!container.contains(target)) {
+          container.style.transition = 'all 1s'
+          container.style.translate = '100%'
+          setTimeout(() => {
+            setter(() => false)
+          }, 1000)
+        }
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
 }
